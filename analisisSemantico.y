@@ -78,7 +78,7 @@ INICIO
     | TOKEN_ECHO ON {echoOn(); printf("->ECHO ACTIVADO\n");}
     | TOKEN_ECHO OFF {echoOff(); printf("->ECHO DESACTIVADO\n");}
     | TOKEN_LOAD TOKEN_ARCHIVO {leerArchivo($2); }
-    | TOKEN_QUIT {exit(0);}     
+    | TOKEN_QUIT {printf("->Saliendo...\n");exit(0);}     
 
     | error {
         yyerror("Error de sintaxis");

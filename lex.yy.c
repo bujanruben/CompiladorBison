@@ -565,12 +565,13 @@ char *yytext;
 void leerArchivo(char *nombre);
 void cerrarArchivo();
 #line 568 "lex.yy.c"
+#define YY_NO_INPUT 1
 /* Definicion de expresiones regulares */
 /* Definicion de los numeros */
 /* archivo.c, archivo.md, archivo.txt...*/
 /* Definiciones de las funciones de la calculadora */
 /* Definicion de las reglas segun los automatas de las expresiones regulares */
-#line 574 "lex.yy.c"
+#line 575 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -630,8 +631,6 @@ extern int yywrap ( void );
 #endif
 
 #ifndef YY_NO_UNPUT
-    
-    static void yyunput ( int c, char *buf_ptr  );
     
 #endif
 
@@ -790,7 +789,7 @@ YY_DECL
 #line 48 "analisisLexico.l"
 
 
-#line 794 "lex.yy.c"
+#line 793 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -934,60 +933,54 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 74 "analisisLexico.l"
+#line 75 "analisisLexico.l"
 {return ((int)*yytext);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 75 "analisisLexico.l"
+#line 76 "analisisLexico.l"
 {return (TOKEN_MAS_IGUAL);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 76 "analisisLexico.l"
+#line 77 "analisisLexico.l"
 {return (TOKEN_MENOS_IGUAL);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 77 "analisisLexico.l"
+#line 78 "analisisLexico.l"
 {return (TOKEN_POR_IGUAL);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 78 "analisisLexico.l"
+#line 79 "analisisLexico.l"
 {return (TOKEN_DIVIDIDO_IGUAL);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 79 "analisisLexico.l"
+#line 80 "analisisLexico.l"
 {return (TOKEN_MAS_MAS);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 80 "analisisLexico.l"
+#line 81 "analisisLexico.l"
 {return (TOKEN_MENOS_MENOS);}
-	YY_BREAK
-case YY_STATE_EOF(INITIAL):
-#line 82 "analisisLexico.l"
-{
-    if (yyin != stdin) {
-        cerrarArchivo();
-        yyrestart(stdin);
-    }
-    return TOKEN_EOF;
-}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 90 "analisisLexico.l"
+#line 84 "analisisLexico.l"
 {printf("ERROR");}
+	YY_BREAK
+case YY_STATE_EOF(INITIAL):
+#line 86 "analisisLexico.l"
+{cerrarArchivo();yyrestart(stdin); return (0);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 92 "analisisLexico.l"
+#line 88 "analisisLexico.l"
 ECHO;
 	YY_BREAK
-#line 991 "lex.yy.c"
+#line 984 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1320,47 +1313,6 @@ static int yy_get_next_buffer (void)
 }
 
 #ifndef YY_NO_UNPUT
-
-    static void yyunput (int c, char * yy_bp )
-{
-	char *yy_cp;
-    
-    yy_cp = (yy_c_buf_p);
-
-	/* undo effects of setting up yytext */
-	*yy_cp = (yy_hold_char);
-
-	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-		{ /* need to shift things up to make room */
-		/* +2 for EOB chars. */
-		int number_to_move = (yy_n_chars) + 2;
-		char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
-					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
-		char *source =
-				&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move];
-
-		while ( source > YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
-			*--dest = *--source;
-
-		yy_cp += (int) (dest - source);
-		yy_bp += (int) (dest - source);
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars =
-			(yy_n_chars) = (int) YY_CURRENT_BUFFER_LVALUE->yy_buf_size;
-
-		if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-			YY_FATAL_ERROR( "flex scanner push-back overflow" );
-		}
-
-	*--yy_cp = (char) c;
-
-    if ( c == '\n' ){
-        --yylineno;
-    }
-
-	(yytext_ptr) = yy_bp;
-	(yy_hold_char) = *yy_cp;
-	(yy_c_buf_p) = yy_cp;
-}
 
 #endif
 
@@ -2002,7 +1954,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 92 "analisisLexico.l"
+#line 88 "analisisLexico.l"
 
 
 void leerArchivo(char *nombre){

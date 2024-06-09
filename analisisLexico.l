@@ -11,7 +11,7 @@ void cerrarArchivo();
 
 %option noyywrap
 %option yylineno
-
+%option noinput nounput
 /* Definicion de expresiones regulares */
 
 NEWLINE \n
@@ -83,6 +83,7 @@ MENOS_MENOS \-\-
 
 . {printf("ERROR");}
 
+<<EOF>>     {cerrarArchivo();yyrestart(stdin); return (0);}
 
 %%
 

@@ -78,18 +78,15 @@
 #include "tablaSimbolos.h"
 
 extern int yylex();
-extern void leerArchivo(char *nombre);
-extern void cerrarArchivo();
 void yyerror(const char *s);
 void echoOff();
 void echoOn();
 void ayuda();
 void verFunciones();
-double ejecutarFuncion2(const char *funcion, double arg1, double arg2);
 
 int echo = 1;
 
-#line 93 "analisisSemantico.tab.c"
+#line 90 "analisisSemantico.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -545,10 +542,10 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    63,    63,    64,    68,    69,    72,    73,    76,    77,
-      78,    79,    80,    81,    82,    83,    84,    86,    92,    93,
-     102,   103,   104,   105,   113,   114,   115,   116,   126,   136,
-     146,   156,   166,   181,   191,   204,   209,   215,   225
+       0,    60,    60,    61,    65,    66,    69,    70,    73,    74,
+      75,    76,    77,    78,    79,    80,    81,    83,    89,    90,
+      99,   100,   101,   102,   110,   111,   112,   113,   123,   133,
+     143,   153,   163,   178,   188,   200,   204,   210,   220
 };
 #endif
 
@@ -1161,79 +1158,79 @@ yyreduce:
   switch (yyn)
     {
   case 5: /* INICIO: EXPRESION '\n'  */
-#line 69 "analisisSemantico.y"
+#line 66 "analisisSemantico.y"
                      {
         mostrarResultado((yyvsp[-1].val));
     }
-#line 1169 "analisisSemantico.tab.c"
+#line 1166 "analisisSemantico.tab.c"
     break;
 
   case 7: /* INICIO: ASIGNACION '\n'  */
-#line 73 "analisisSemantico.y"
+#line 70 "analisisSemantico.y"
                       {
         mostrarResultado((yyvsp[-1].val));
     }
-#line 1177 "analisisSemantico.tab.c"
+#line 1174 "analisisSemantico.tab.c"
     break;
 
   case 10: /* INICIO: TOKEN_HELP  */
-#line 78 "analisisSemantico.y"
+#line 75 "analisisSemantico.y"
                  {imprimirAyuda();}
-#line 1183 "analisisSemantico.tab.c"
+#line 1180 "analisisSemantico.tab.c"
     break;
 
   case 11: /* INICIO: TOKEN_WORKSPACE  */
-#line 79 "analisisSemantico.y"
+#line 76 "analisisSemantico.y"
                       {imprimirTablaSimbolos();}
-#line 1189 "analisisSemantico.tab.c"
+#line 1186 "analisisSemantico.tab.c"
     break;
 
   case 12: /* INICIO: TOKEN_CLEAR  */
-#line 80 "analisisSemantico.y"
+#line 77 "analisisSemantico.y"
                   {limpiarVariables();}
-#line 1195 "analisisSemantico.tab.c"
+#line 1192 "analisisSemantico.tab.c"
     break;
 
   case 13: /* INICIO: TOKEN_ECHO ON  */
-#line 81 "analisisSemantico.y"
+#line 78 "analisisSemantico.y"
                     {echoOn(); printf("->ECHO ACTIVADO\n");}
-#line 1201 "analisisSemantico.tab.c"
+#line 1198 "analisisSemantico.tab.c"
     break;
 
   case 14: /* INICIO: TOKEN_ECHO OFF  */
-#line 82 "analisisSemantico.y"
+#line 79 "analisisSemantico.y"
                      {echoOff(); printf("->ECHO DESACTIVADO\n");}
-#line 1207 "analisisSemantico.tab.c"
+#line 1204 "analisisSemantico.tab.c"
     break;
 
   case 15: /* INICIO: TOKEN_LOAD TOKEN_ARCHIVO  */
-#line 83 "analisisSemantico.y"
-                               {leerArchivo((yyvsp[0].str));}
-#line 1213 "analisisSemantico.tab.c"
+#line 80 "analisisSemantico.y"
+                               {leerArchivo((yyvsp[0].str)); }
+#line 1210 "analisisSemantico.tab.c"
     break;
 
   case 16: /* INICIO: TOKEN_QUIT  */
-#line 84 "analisisSemantico.y"
-                 {exit(0);}
-#line 1219 "analisisSemantico.tab.c"
+#line 81 "analisisSemantico.y"
+                 {printf("->Saliendo...\n");exit(0);}
+#line 1216 "analisisSemantico.tab.c"
     break;
 
   case 17: /* INICIO: error  */
-#line 86 "analisisSemantico.y"
+#line 83 "analisisSemantico.y"
             {
         yyerror("Error de sintaxis");
     }
-#line 1227 "analisisSemantico.tab.c"
+#line 1224 "analisisSemantico.tab.c"
     break;
 
   case 18: /* EXPRESION: TOKEN_NUMERO  */
-#line 92 "analisisSemantico.y"
+#line 89 "analisisSemantico.y"
                    { (yyval.val) = (yyvsp[0].val); }
-#line 1233 "analisisSemantico.tab.c"
+#line 1230 "analisisSemantico.tab.c"
     break;
 
   case 19: /* EXPRESION: TOKEN_IDENTIFICADOR  */
-#line 93 "analisisSemantico.y"
+#line 90 "analisisSemantico.y"
                           {
         if (esVariable((yyvsp[0].str)) || esConstante((yyvsp[0].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[0].str));
@@ -1243,29 +1240,29 @@ yyreduce:
         }
         free((yyvsp[0].str));
     }
-#line 1247 "analisisSemantico.tab.c"
+#line 1244 "analisisSemantico.tab.c"
     break;
 
   case 20: /* EXPRESION: EXPRESION '+' EXPRESION  */
-#line 102 "analisisSemantico.y"
+#line 99 "analisisSemantico.y"
                               { (yyval.val) = (yyvsp[-2].val) + (yyvsp[0].val); }
-#line 1253 "analisisSemantico.tab.c"
+#line 1250 "analisisSemantico.tab.c"
     break;
 
   case 21: /* EXPRESION: EXPRESION '-' EXPRESION  */
-#line 103 "analisisSemantico.y"
+#line 100 "analisisSemantico.y"
                               { (yyval.val) = (yyvsp[-2].val) - (yyvsp[0].val); }
-#line 1259 "analisisSemantico.tab.c"
+#line 1256 "analisisSemantico.tab.c"
     break;
 
   case 22: /* EXPRESION: EXPRESION '*' EXPRESION  */
-#line 104 "analisisSemantico.y"
+#line 101 "analisisSemantico.y"
                               { (yyval.val) = (yyvsp[-2].val) * (yyvsp[0].val); }
-#line 1265 "analisisSemantico.tab.c"
+#line 1262 "analisisSemantico.tab.c"
     break;
 
   case 23: /* EXPRESION: EXPRESION '/' EXPRESION  */
-#line 105 "analisisSemantico.y"
+#line 102 "analisisSemantico.y"
                               {
         if ((yyvsp[0].val) == 0) {
             yyerror("ERROR: División por cero.");
@@ -1274,29 +1271,29 @@ yyreduce:
             (yyval.val) = (yyvsp[-2].val) / (yyvsp[0].val);
         }
     }
-#line 1278 "analisisSemantico.tab.c"
+#line 1275 "analisisSemantico.tab.c"
     break;
 
   case 24: /* EXPRESION: '-' EXPRESION  */
-#line 113 "analisisSemantico.y"
+#line 110 "analisisSemantico.y"
                               { (yyval.val) = -(yyvsp[0].val); }
-#line 1284 "analisisSemantico.tab.c"
+#line 1281 "analisisSemantico.tab.c"
     break;
 
   case 25: /* EXPRESION: EXPRESION '^' EXPRESION  */
-#line 114 "analisisSemantico.y"
+#line 111 "analisisSemantico.y"
                               { (yyval.val) = pow((yyvsp[-2].val), (yyvsp[0].val)); }
-#line 1290 "analisisSemantico.tab.c"
+#line 1287 "analisisSemantico.tab.c"
     break;
 
   case 26: /* EXPRESION: '(' EXPRESION ')'  */
-#line 115 "analisisSemantico.y"
+#line 112 "analisisSemantico.y"
                         { (yyval.val) = (yyvsp[-1].val); }
-#line 1296 "analisisSemantico.tab.c"
+#line 1293 "analisisSemantico.tab.c"
     break;
 
   case 27: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MAS_MAS  */
-#line 116 "analisisSemantico.y"
+#line 113 "analisisSemantico.y"
                                         {
         if (esVariable((yyvsp[-1].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-1].str)) + 1;
@@ -1307,11 +1304,11 @@ yyreduce:
         }
         free((yyvsp[-1].str));
     }
-#line 1311 "analisisSemantico.tab.c"
+#line 1308 "analisisSemantico.tab.c"
     break;
 
   case 28: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MENOS_MENOS  */
-#line 126 "analisisSemantico.y"
+#line 123 "analisisSemantico.y"
                                             {
         if (esVariable((yyvsp[-1].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-1].str)) - 1;
@@ -1322,11 +1319,11 @@ yyreduce:
         }
         free((yyvsp[-1].str));
     }
-#line 1326 "analisisSemantico.tab.c"
+#line 1323 "analisisSemantico.tab.c"
     break;
 
   case 29: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MAS_IGUAL EXPRESION  */
-#line 136 "analisisSemantico.y"
+#line 133 "analisisSemantico.y"
                                                     {
         if (esVariable((yyvsp[-2].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-2].str)) + (yyvsp[0].val);
@@ -1337,11 +1334,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1341 "analisisSemantico.tab.c"
+#line 1338 "analisisSemantico.tab.c"
     break;
 
   case 30: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MENOS_IGUAL EXPRESION  */
-#line 146 "analisisSemantico.y"
+#line 143 "analisisSemantico.y"
                                                       {
         if (esVariable((yyvsp[-2].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-2].str)) - (yyvsp[0].val);
@@ -1352,11 +1349,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1356 "analisisSemantico.tab.c"
+#line 1353 "analisisSemantico.tab.c"
     break;
 
   case 31: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_POR_IGUAL EXPRESION  */
-#line 156 "analisisSemantico.y"
+#line 153 "analisisSemantico.y"
                                                     {
         if (esVariable((yyvsp[-2].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-2].str)) * (yyvsp[0].val);
@@ -1367,11 +1364,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1371 "analisisSemantico.tab.c"
+#line 1368 "analisisSemantico.tab.c"
     break;
 
   case 32: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_DIVIDIDO_IGUAL EXPRESION  */
-#line 166 "analisisSemantico.y"
+#line 163 "analisisSemantico.y"
                                                          {
         if (esVariable((yyvsp[-2].str))) {
             if ((yyvsp[0].val) == 0) {
@@ -1387,11 +1384,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1391 "analisisSemantico.tab.c"
+#line 1388 "analisisSemantico.tab.c"
     break;
 
   case 33: /* EXPRESION: TOKEN_FUNCIONES '(' EXPRESION ')'  */
-#line 181 "analisisSemantico.y"
+#line 178 "analisisSemantico.y"
                                         {
         if (esFuncion((yyvsp[-3].str))) {
             (yyval.val) = ejecutarFuncion((yyvsp[-3].str), (yyvsp[-1].val));
@@ -1402,44 +1399,42 @@ yyreduce:
         }
         free((yyvsp[-3].str));
     }
-#line 1406 "analisisSemantico.tab.c"
+#line 1403 "analisisSemantico.tab.c"
     break;
 
   case 34: /* EXPRESION: TOKEN_FUNCIONES '(' EXPRESION ',' EXPRESION ')'  */
-#line 191 "analisisSemantico.y"
+#line 188 "analisisSemantico.y"
                                                       {
         if (esFuncion((yyvsp[-5].str))) {
-            (yyval.val) = ejecutarFuncion2((yyvsp[-5].str), (yyvsp[-3].val), (yyvsp[-1].val));
+            (yyval.val) = ejecutarFuncion2((yyvsp[-5].str), (yyvsp[-3].val),(yyvsp[-1].val));
         } else {
             yyerror("ERROR: Función no existente.");
             verFunciones();
             (yyval.val) = NAN;
         }
-        free((yyvsp[-5].str));
     }
-#line 1421 "analisisSemantico.tab.c"
+#line 1417 "analisisSemantico.tab.c"
     break;
 
   case 35: /* COMANDO: TOKEN_EOF  */
-#line 204 "analisisSemantico.y"
+#line 200 "analisisSemantico.y"
                 {
         // Cuando se acaba de leer el archivo
         cerrarArchivo();
-        yyrestart(stdin); // Reinicia el lexer en la entrada estándar
     }
-#line 1431 "analisisSemantico.tab.c"
+#line 1426 "analisisSemantico.tab.c"
     break;
 
   case 36: /* COMANDO: TOKEN_ERROR  */
-#line 209 "analisisSemantico.y"
+#line 204 "analisisSemantico.y"
                   {
         yyerror("ERROR: Lexema mal formado.");
     }
-#line 1439 "analisisSemantico.tab.c"
+#line 1434 "analisisSemantico.tab.c"
     break;
 
   case 37: /* ASIGNACION: TOKEN_IDENTIFICADOR '=' EXPRESION  */
-#line 215 "analisisSemantico.y"
+#line 210 "analisisSemantico.y"
                                         {
         if (!esConstante((yyvsp[-2].str))) {
             anadirVariable((yyvsp[-2].str), (yyvsp[0].val));
@@ -1450,19 +1445,19 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1454 "analisisSemantico.tab.c"
+#line 1449 "analisisSemantico.tab.c"
     break;
 
   case 38: /* ASIGNACION: TOKEN_IDENTIFICADOR '=' COMANDO  */
-#line 225 "analisisSemantico.y"
+#line 220 "analisisSemantico.y"
                                       {
         yyerror("ERROR: Asignación no válida a un comando.");
     }
-#line 1462 "analisisSemantico.tab.c"
+#line 1457 "analisisSemantico.tab.c"
     break;
 
 
-#line 1466 "analisisSemantico.tab.c"
+#line 1461 "analisisSemantico.tab.c"
 
       default: break;
     }
@@ -1655,7 +1650,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 230 "analisisSemantico.y"
+#line 225 "analisisSemantico.y"
 
 
 void yyerror(const char *s) {
@@ -1674,12 +1669,4 @@ void echoOff() {
 
 void echoOn() {
     echo = 1;
-}
-
-double ejecutarFuncion2(const char *funcion, double arg1, double arg2) {
-    if (strcmp(funcion, "pow") == 0) {
-        return pow(arg1, arg2);
-    }
-    // Agrega aquí otras funciones de dos argumentos si es necesario
-    return NAN;
 }
