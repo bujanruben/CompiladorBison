@@ -73,9 +73,9 @@ double ejecutarFuncion(char *lexema, double val)
 // Imprime TS
 void imprimirTablaSimbolos()
 {
-    printf("\nTABLA DE SIMBOLOS\n----------------\n");
+    printf("\n*****************TABLA DE SIMBOLOS*****************\n\n");
     mostrarArbol(tablaSimbolos);
-    printf("----------------\n");
+    printf("****************************************************\n");
 }
 
 // Imprime solo las variables de la TS

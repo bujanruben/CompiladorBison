@@ -285,17 +285,17 @@ void mostrarNodo(abb arbol)
     {
         printf("Variable: %s\n", arbol->info.lexema);
 
-        printf("Valor: %f\n", arbol->info.data.num);
+        printf("Valor: %f\n\n", arbol->info.data.num);
     }
     else if (arbol->tipo == ID_CONSTANTE)
     {
         printf("Constante: %s\n", arbol->info.lexema);
-        printf("Valor: %f\n", arbol->info.data.num);
+        printf("Valor: %f\n\n", arbol->info.data.num);
     }
     else if (arbol->tipo == ID_FUNCION)
     {
         printf("Función: %s\n", arbol->info.lexema);
-        printf("Categoría: Función\n");
+        printf("Categoría: Función\n\n");
     }
 }
 
