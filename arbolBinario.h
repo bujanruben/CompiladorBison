@@ -1,7 +1,7 @@
 #ifndef ARBOLBINARIO_H
 #define ARBOLBINARIO_H
 
-// DEFINICIÓN DEL VALOR DE LOS ELEMENTOS DEL ÁRBOL
+// Definicion de los datos del elemento variable
 union Valor
 {
     double num;
@@ -10,7 +10,7 @@ union Valor
 
 typedef union Valor valor;
 
-// DEFINICIÓN DE LOS ELEMENTOS DEL ÁRBOL
+// Definicion del elemento variable del arbol
 typedef struct
 {
     valor data;
@@ -25,19 +25,15 @@ void destruir(abb *arbol);
 unsigned arbolVacio(abb arbol);
 abb devolverIzquierda(abb arbol);
 abb devolverDerecha(abb arbol);
-
 void insertarFuncion(abb *arbol, char *lexema, double (*funcion)());
 void insertarVariable(abb *arbol, char *lexema, double val);
 void insertarConstante(abb *arbol, char *lexema, double val);
-
 int buscarLexema(abb arbol, char *lexema);
 int existeVariable(abb arbol, char *lexema);
 int existeConstante(abb arbol, char *lexema);
 int existeFuncion(abb arbol, char *lexema);
 double buscarVariableConstante(abb arbol, char *lexema);
 double buscarFuncion(abb arbol, char *lexema, double val);
-double buscarFuncion2(abb arbol, char *lexema, double val1, double val2);
-
 void mostrarArbol(abb arbol);
 void imprimirArbolVariables(abb *arbol);
 void eliminarVariables(abb *arbol);

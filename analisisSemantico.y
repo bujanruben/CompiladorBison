@@ -75,10 +75,19 @@ INICIO
     | TOKEN_HELP {imprimirAyuda();}      
     | TOKEN_WORKSPACE {imprimirTablaSimbolos();}   
     | TOKEN_CLEAR {limpiarVariables();}    
-    | TOKEN_ECHO ON {echoOn(); printf("->ECHO ACTIVADO\n");}
-    | TOKEN_ECHO OFF {echoOff(); printf("->ECHO DESACTIVADO\n");}
+    | TOKEN_ECHO ON {
+        echoOn(); 
+        printf("->ECHO ACTIVADO\n");
+        }
+    | TOKEN_ECHO OFF {
+        echoOff(); 
+        printf("->ECHO DESACTIVADO\n");
+        }
     | TOKEN_LOAD TOKEN_ARCHIVO {leerArchivo($2); }
-    | TOKEN_QUIT {printf("->Saliendo...\n");exit(0);}     
+    | TOKEN_QUIT {
+        printf("->Saliendo...\n");
+        exit(0);
+        }     
 
     | error {
         yyerror("Error de sintaxis");
@@ -174,8 +183,8 @@ EXPRESION
             $$ = NAN;
         }
         free($1);
-    }
-    | TOKEN_FUNCIONES '(' EXPRESION ')' {
+    }    
+    | TOKEN_FUNCIONES '(' TOKEN_NUMERO ')' {
         if (esFuncion($1)) {
             $$ = ejecutarFuncion($1, $3);
         } else {
@@ -184,15 +193,6 @@ EXPRESION
             $$ = NAN;
         }
         free($1);
-    }
-    | TOKEN_FUNCIONES '(' EXPRESION ',' EXPRESION ')' {
-        if (esFuncion($1)) {
-            $$ = ejecutarFuncion2($1, $3,$5);
-        } else {
-            yyerror("ERROR: Función no existente.");
-            verFunciones();
-            $$ = NAN;
-        }
     }
     ;
 

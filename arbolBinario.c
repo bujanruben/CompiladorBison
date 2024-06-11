@@ -4,7 +4,7 @@
 #include <string.h>
 #include "definiciones.h"
 
-// DEFINICIÓN DE LA ESTRUCTURA DE LOS NODOS DEL ÁRBOL
+// Estructura de arbol binario (Arbol sobre rama recursiva con dos ramas izquierda y derecha, junto a variable y tipo de variable
 struct celda
 {
     variable info;
@@ -276,45 +276,29 @@ double buscarFuncion(abb arbol, char *lexema, double val)
     }
 }
 
-// busca una función en el árbol y la ejecuta (2 parámetros)
-double buscarFuncion2(abb arbol, char *lexema, double val1, double val2)
-{
-    int comparacion = strcmp(lexema, arbol->info.lexema);
-    if (comparacion == 0)
-    {
-        return arbol->info.data.funcion(val1, val2);
-    }
-    else if (comparacion < 0)
-    {
-        return buscarFuncion2(arbol->izquierda, lexema, val1, val2);
-    }
-    else
-    {
-        return buscarFuncion2(arbol->derecha, lexema, val1, val2);
-    }
-}
+
 
 // muestra el nodo
 void mostrarNodo(abb arbol)
 {
-    if (arbol->tipo == ID_FUNCION)
+    if (arbol->tipo == ID_VARIABLE)
     {
-        printf("Función: %10s\n", arbol->info.lexema);
-        printf("\tTipo: Función\n");
-    }
-    else if (arbol->tipo == ID_VARIABLE)
-    {
-        printf("Variable: %10s\n", arbol->info.lexema);
-        printf("\tTipo: Variable\n");
-        printf("%10s: %-5f\n", "Valor", arbol->info.data.num);
+        printf("Variable: %s\n", arbol->info.lexema);
+
+        printf("Valor: %f\n", arbol->info.data.num);
     }
     else if (arbol->tipo == ID_CONSTANTE)
     {
-        printf("Constante: %10s\n", arbol->info.lexema);
-        printf("\tTipo: Constante\n");
-        printf("%10s: %-5f\n", "Valor", arbol->info.data.num);
+        printf("Constante: %s\n", arbol->info.lexema);
+        printf("Valor: %f\n", arbol->info.data.num);
+    }
+    else if (arbol->tipo == ID_FUNCION)
+    {
+        printf("Función: %s\n", arbol->info.lexema);
+        printf("Categoría: Función\n");
     }
 }
+
 
 // muestra el arbol entero de forma ordenada
 void mostrarArbol(abb arbol)

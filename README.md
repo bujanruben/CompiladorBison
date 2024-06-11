@@ -8,7 +8,7 @@ También tiene la opción de usar ciertas comandos de código, como ejecutar un 
 
 Constantes:
 
-PI
+Número PI
 
 Número de euler
 
@@ -28,42 +28,41 @@ Módulo '%'
 
 +=	-=
 
-++ 		-- 		*= 		/= 		????
+++ 		-- 		*= 		/= 	
 
 Operaciones con funciones:
 
-sin
+SENO:sin
 
-cos
+COSENO:cos
 
-tan
+TANGENTE:tan
 
-sec
+SECANTE:sec
 
-cosec
+COSECANTE:cosec
 
-cotan
+COTANGENTE:cotan
 
-log
+LOGARITMO EN BASE 10:log
 
-ln
+LOGARITMO NEPERIANO:ln
 
-exp
-
-sqrt
+RAIZ CUADRADA:sqrt
 
 Comandos complementarios:
 
-echo(on/off)    	Enciende o apaga echo (por defecto está en on)
-help()          	Muestra ayuda general
-quit()         	    Cierra el programa
-workspace()         Muestra todas las variables del sistema asignadas
-clear()         	Limpia las variables de trabajo creadas
-load()          	Carga fichero que se imprime segun la configuración de echo
+echo on/off    	Enciende o apaga echo (por defecto está en on)
+help          	Muestra ayuda general
+quit         	Cierra el programa
+workspace       Muestra todas las variables del sistema asignadas
+clear         	Limpia las variables de trabajo creadas
+load archivo    Carga fichero que se imprime segun la configuración de echo
 
 
-Compilación y ejecución:
+# Compilación y ejecución:
 
 Compilación en ubuntu LTS 22.04.3 usando ./compilacion.sh
+
 Ejecución con ./calculadora
 Ejecución de un archivo con ./calculadora archivo.txt

@@ -33,8 +33,7 @@ ARCHIVO {IDENTIFICADOR}\.{LETRA}+
 /* archivo.c, archivo.md, archivo.txt...*/
 
 /* Definiciones de las funciones de la calculadora */
-FUNCIONES   ("sin"|"cos"|"tan"|"sec"|"cosec"|"cotan"|"pow"|"sqrt"|"log"|"ln"|"exp")
-
+FUNCIONES   ("sin"|"cos"|"tan"|"sec"|"cosec"|"cotan"|"sqrt"|"log"|"ln"|"exp")
 OPERADORES (\+|\-|\*|\/|\^|\%|\(|\)|\;|\=)
 MAS_IGUAL   \+=
 MENOS_IGUAL \-=
