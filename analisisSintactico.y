@@ -13,7 +13,6 @@ void echoOff();
 void echoOn();
 void ayuda();
 void verFunciones();
-
 int echo = 1;
 %}
 
@@ -73,8 +72,11 @@ INICIO
     | EXPRESION ';' '\n'
     | ASIGNACION ';' '\n'
     | TOKEN_HELP {imprimirAyuda();}      
-    | TOKEN_WORKSPACE {imprimirTablaSimbolos();}   
-    | TOKEN_CLEAR {limpiarVariables();}    
+    | TOKEN_WORKSPACE {imprimirWorkspace();}   
+    | TOKEN_CLEAR {
+        limpiarVariables();
+        printf("-> Workspace vaciado\n");
+        }    
     | TOKEN_ECHO ON {
         echoOn(); 
         printf("-> ECHO ACTIVADO\n");

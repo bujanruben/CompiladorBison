@@ -11,6 +11,7 @@ unsigned esFuncion(char *lexema);
 double obtenerVariableConstante(char *lexema);
 double ejecutarFuncion(char *lexema, double val);
 void imprimirTablaSimbolos();
+void imprimirWorkspace();
 void imprimirTablaSimbolosVariables();
 void limpiarVariables();
 void verFunciones(); 

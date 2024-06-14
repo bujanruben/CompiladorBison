@@ -77,7 +77,13 @@ void imprimirTablaSimbolos()
     mostrarArbol(tablaSimbolos);
     printf("****************************************************\n");
 }
+void imprimirWorkspace(){
+    
+    printf("\n*****************WORKSPACE*****************\n\n");
+    mostrarArbolVariables(tablaSimbolos);
+    printf("*********************************************\n");
 
+}
 // Imprime solo las variables de la TS
 void imprimirTablaSimbolosVariables()
 {

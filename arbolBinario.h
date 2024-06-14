@@ -39,5 +39,6 @@ void imprimirArbolVariables(abb *arbol);
 void eliminarVariables(abb *arbol);
 void eliminarNodo(abb *arbol);
 void eliminarComponente(variable *variable);
-
+void mostrarNodoVariables(abb arbol);
+void mostrarArbolVariables(abb arbol);
 #endif // ARBOLBINARIO_H

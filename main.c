@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     printf("\n***********CALCULADORA BISON***********\n\n");
     printf("Esta calculadora permite ejecutar operaciones aritmeticas así como funciones matemáticas:\n(sin, cos, tan, sec, cosec, cotan, pow, sqrt, log, ln, exp)\n");
     printf("Permite el uso de variables para almacenar valores\n");
-    printf("También se cuenta con comandos internos:\nECHO ON, ECHO OFF,HELP,QUIT,WORKSPACE,CLEAR,LOAD()\n");
+    printf("También se cuenta con comandos internos:\nECHO ON, ECHO OFF,HELP,QUIT,WORKSPACE,CLEAR,LOAD archivo\n");
     printf("Para más información escriba HELP\n");
     printf("Para salir escriba QUIT\n\n****************************************\n");
     iniciarTablaSimbolos();

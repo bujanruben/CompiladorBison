@@ -100,5 +100,5 @@ void cerrarArchivo(){
     if (yyin != stdin) {
         fclose(yyin);
     }
-    yyin = NULL;
+    yyin = stdin;
 }

@@ -311,6 +311,30 @@ void mostrarArbol(abb arbol)
     }
 }
 
+// muestra la variable
+void mostrarNodoVariables(abb arbol)
+{
+    if (arbol->tipo == ID_VARIABLE)
+    {
+        printf("Variable: %s\n", arbol->info.lexema);
+
+        printf("Valor: %f\n\n", arbol->info.data.num);
+    }
+
+}
+// muestra solo las variables en el arbol
+void mostrarArbolVariables(abb arbol)
+{
+    if (!arbolVacio(arbol))
+    {
+        mostrarArbolVariables(devolverIzquierda(arbol));
+        mostrarNodoVariables(arbol);
+        mostrarArbolVariables(devolverDerecha(arbol));
+    }
+}
+
+
+
 // muestra el árbol de variables
 void imprimirArbolVariables(abb *arbol)
 {
