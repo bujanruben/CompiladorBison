@@ -2,7 +2,7 @@
 #include <string.h>
 #include "definiciones.h"
 #include "tablaSimbolos.h"
-#include "analisisSemantico.tab.h"
+#include "analisisSintactico.tab.h"
 #include "lex.yy.h"
 
 void leerArchivo(char *nombre);
@@ -12,6 +12,8 @@ void cerrarArchivo();
 %option noyywrap
 %option yylineno
 %option noinput nounput
+
+
 /* Definicion de expresiones regulares */
 
 NEWLINE \n
@@ -29,8 +31,8 @@ NUMERO_ENTERO {DIGITO}+
 NUMERO_FLOTANTE ({DIGITOPARTE}?{FRACCION}|{DIGITOPARTE}\.)({EXPONENTE})?|{DIGITOPARTE}{EXPONENTE}
 NUMERO {NUMERO_ENTERO}|{NUMERO_FLOTANTE}
 
-ARCHIVO {IDENTIFICADOR}\.{LETRA}+ 
 /* archivo.c, archivo.md, archivo.txt...*/
+ARCHIVO {IDENTIFICADOR}\.{LETRA}+ 
 
 /* Definiciones de las funciones de la calculadora */
 FUNCIONES   ("sin"|"cos"|"tan"|"sec"|"cosec"|"cotan"|"sqrt"|"log"|"ln"|"exp")
@@ -80,7 +82,7 @@ MENOS_MENOS \-\-
 {MENOS_MENOS}       {return (TOKEN_MENOS_MENOS);}
 
 
-. {printf("ERROR");}
+. {printf("ERROR: error léxico");}
 
 <<EOF>>     {cerrarArchivo();yyrestart(stdin); return (0);}
 

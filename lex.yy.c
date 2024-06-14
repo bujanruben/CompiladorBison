@@ -557,7 +557,7 @@ char *yytext;
 #include <string.h>
 #include "definiciones.h"
 #include "tablaSimbolos.h"
-#include "analisisSemantico.tab.h"
+#include "analisisSintactico.tab.h"
 #include "lex.yy.h"
 
 void leerArchivo(char *nombre);
@@ -784,7 +784,7 @@ YY_DECL
 		}
 
 	{
-#line 47 "analisisLexico.l"
+#line 49 "analisisLexico.l"
 
 
 #line 791 "lex.yy.c"
@@ -856,126 +856,126 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 49 "analisisLexico.l"
+#line 51 "analisisLexico.l"
 {}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 51 "analisisLexico.l"
+#line 53 "analisisLexico.l"
 return (TOKEN_LOAD);
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 52 "analisisLexico.l"
+#line 54 "analisisLexico.l"
 return (TOKEN_HELP);
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 53 "analisisLexico.l"
+#line 55 "analisisLexico.l"
 return (TOKEN_QUIT);
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 54 "analisisLexico.l"
+#line 56 "analisisLexico.l"
 return (TOKEN_WORKSPACE);
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 55 "analisisLexico.l"
+#line 57 "analisisLexico.l"
 return (TOKEN_CLEAR);
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 56 "analisisLexico.l"
+#line 58 "analisisLexico.l"
 return(TOKEN_ECHO);
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 57 "analisisLexico.l"
+#line 59 "analisisLexico.l"
 return (ON);
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 58 "analisisLexico.l"
+#line 60 "analisisLexico.l"
 return (OFF);
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 60 "analisisLexico.l"
+#line 62 "analisisLexico.l"
 { yylval.str = strdup(yytext); return (TOKEN_FUNCIONES);}
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 62 "analisisLexico.l"
+#line 64 "analisisLexico.l"
 {return ((int)*yytext);}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 63 "analisisLexico.l"
+#line 65 "analisisLexico.l"
 {  yylval.val=atof(yytext);
             return (TOKEN_NUMERO);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 66 "analisisLexico.l"
+#line 68 "analisisLexico.l"
 {   yylval.str = strdup(yytext);
                     return (TOKEN_IDENTIFICADOR);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 69 "analisisLexico.l"
+#line 71 "analisisLexico.l"
 { yylval.str = strdup(yytext);
             return (TOKEN_ARCHIVO); 
 }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 74 "analisisLexico.l"
+#line 76 "analisisLexico.l"
 {return ((int)*yytext);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 75 "analisisLexico.l"
+#line 77 "analisisLexico.l"
 {return (TOKEN_MAS_IGUAL);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 76 "analisisLexico.l"
+#line 78 "analisisLexico.l"
 {return (TOKEN_MENOS_IGUAL);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 77 "analisisLexico.l"
+#line 79 "analisisLexico.l"
 {return (TOKEN_POR_IGUAL);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 78 "analisisLexico.l"
+#line 80 "analisisLexico.l"
 {return (TOKEN_DIVIDIDO_IGUAL);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 79 "analisisLexico.l"
+#line 81 "analisisLexico.l"
 {return (TOKEN_MAS_MAS);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 80 "analisisLexico.l"
+#line 82 "analisisLexico.l"
 {return (TOKEN_MENOS_MENOS);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 83 "analisisLexico.l"
-{printf("ERROR");}
+#line 85 "analisisLexico.l"
+{printf("ERROR: error léxico");}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 85 "analisisLexico.l"
+#line 87 "analisisLexico.l"
 {cerrarArchivo();yyrestart(stdin); return (0);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 87 "analisisLexico.l"
+#line 89 "analisisLexico.l"
 ECHO;
 	YY_BREAK
 #line 982 "lex.yy.c"
@@ -1952,7 +1952,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 87 "analisisLexico.l"
+#line 89 "analisisLexico.l"
 
 
 void leerArchivo(char *nombre){

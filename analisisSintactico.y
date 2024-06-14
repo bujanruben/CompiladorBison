@@ -77,20 +77,20 @@ INICIO
     | TOKEN_CLEAR {limpiarVariables();}    
     | TOKEN_ECHO ON {
         echoOn(); 
-        printf("->ECHO ACTIVADO\n");
+        printf("-> ECHO ACTIVADO\n");
         }
     | TOKEN_ECHO OFF {
         echoOff(); 
-        printf("->ECHO DESACTIVADO\n");
+        printf("-> ECHO DESACTIVADO\n");
         }
     | TOKEN_LOAD TOKEN_ARCHIVO {leerArchivo($2); }
     | TOKEN_QUIT {
-        printf("->Saliendo...\n");
+        printf("-> Saliendo...\n");
         exit(0);
         }     
 
     | error {
-        yyerror("Error de sintaxis");
+        yyerror("ERROR: Error de sintaxis");
     }
     ;
 
@@ -184,7 +184,7 @@ EXPRESION
         }
         free($1);
     }    
-    | TOKEN_FUNCIONES '(' TOKEN_NUMERO ')' {
+    | TOKEN_FUNCIONES '(' EXPRESION ')' {
         if (esFuncion($1)) {
             $$ = ejecutarFuncion($1, $3);
         } else {
@@ -198,7 +198,6 @@ EXPRESION
 
 COMANDO
     : TOKEN_EOF {
-        // Cuando se acaba de leer el archivo
         cerrarArchivo();
     }
     | TOKEN_ERROR {
@@ -230,7 +229,7 @@ void yyerror(const char *s) {
 
 void mostrarResultado(double valor) {
     if (echo && !isnan(valor)) {
-        printf("-> %.10g\n", valor);
+        printf("-> %g\n", valor);
     }
 }
 

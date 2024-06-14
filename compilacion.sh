@@ -1,3 +1,3 @@
 flex analisisLexico.l
-bison -d analisisSemantico.y
+bison -d analisisSintactico.y
 gcc -Wall *.c -o calculadora -lfl -lm

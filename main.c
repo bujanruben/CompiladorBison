@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "tablaSimbolos.h"
 #include "lex.yy.h"
-#include "analisisSemantico.tab.h"
+#include "analisisSintactico.tab.h"
 
 int main(int argc, char **argv)
 {             

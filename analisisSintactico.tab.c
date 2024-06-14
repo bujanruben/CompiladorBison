@@ -67,7 +67,7 @@
 
 
 /* First part of user prologue.  */
-#line 1 "analisisSemantico.y"
+#line 1 "analisisSintactico.y"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,7 +86,7 @@ void verFunciones();
 
 int echo = 1;
 
-#line 90 "analisisSemantico.tab.c"
+#line 90 "analisisSintactico.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -109,7 +109,7 @@ int echo = 1;
 #  endif
 # endif
 
-#include "analisisSemantico.tab.h"
+#include "analisisSintactico.tab.h"
 /* Symbol kind.  */
 enum yysymbol_kind_t
 {
@@ -544,7 +544,7 @@ static const yytype_uint8 yyrline[] =
        0,    60,    60,    61,    65,    66,    69,    70,    73,    74,
       75,    76,    77,    78,    82,    86,    87,    92,    98,    99,
      108,   109,   110,   111,   119,   120,   121,   122,   132,   142,
-     152,   162,   172,   187,   200,   204,   210,   220
+     152,   162,   172,   187,   200,   203,   209,   219
 };
 #endif
 
@@ -591,12 +591,12 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      24,   -30,   -30,    86,   -29,   -30,   -30,   -30,   -30,   -30,
-     -30,    31,     6,    61,   -30,    61,     0,   -30,    87,   -24,
-      -9,    61,    61,    61,    61,   -30,   -30,    57,    21,   -30,
-     -30,   -30,   113,    -2,    76,   -30,   -30,    61,    61,    61,
-      61,    61,   -30,     5,   -30,   -30,    15,     7,     7,    -2,
-      -2,   -16,   -30,     4,   -30,     7,     7,    -2,    -2,    -2,
+      24,   -30,   -30,    72,   -29,   -30,   -30,   -30,   -30,   -30,
+     -30,    44,     6,    29,   -30,    29,     0,   -30,    85,   -24,
+      -9,    29,    29,    29,    29,   -30,   -30,    64,    29,   -30,
+     -30,   -30,   109,    -4,    65,   -30,   -30,    29,    29,    29,
+      29,    29,   -30,    -3,   -30,   -30,     5,    97,    97,    -4,
+      -4,   -16,   -30,    75,   -30,    97,    97,    -4,    -4,    -4,
      -30,   -30,   -30
 };
 
@@ -617,7 +617,7 @@ static const yytype_int8 yydefact[] =
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -30,   -30,    29,    35,    22,   -30
+     -30,   -30,    20,    35,    17,   -30
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -633,34 +633,34 @@ static const yytype_int8 yytable[] =
 {
       35,     1,    28,     2,     3,    44,     4,    37,    38,    39,
       40,    31,    41,     5,     6,     7,     8,     9,    10,    11,
-      45,    46,    12,    13,    53,     1,    41,     2,     3,    14,
-       4,    15,    39,    40,    60,    41,    62,     5,     6,     7,
-       8,     9,    10,    11,    61,    36,    12,    13,    33,    52,
-      34,    29,    30,    14,     0,    15,    47,    48,    49,    50,
-       2,    32,    51,     4,     2,    32,     0,     4,     0,     0,
-       5,     6,    55,    56,    57,    58,    59,     0,     0,     0,
-      13,     0,     0,     0,    13,     0,     0,     0,    15,     0,
-       0,     0,    15,    21,    22,    23,    24,    25,    26,    37,
-      38,    39,    40,     0,    41,     0,     0,     0,    54,     0,
-      37,    38,    39,    40,     0,    41,    42,    43,     0,    27,
-      21,    22,    23,    24,    25,    26
+      45,    46,    12,    13,    41,     1,    60,     2,     3,    14,
+       4,    15,     2,    32,    61,     4,    36,     5,     6,     7,
+       8,     9,    10,    11,    52,     0,    12,    13,    33,     0,
+      34,     0,    13,    14,     0,    15,    47,    48,    49,    50,
+      15,     0,    51,    53,    29,    30,     0,     2,    32,     0,
+       4,     0,    55,    56,    57,    58,    59,     5,     6,    21,
+      22,    23,    24,    25,    26,     0,     0,    13,    37,    38,
+      39,    40,     0,    41,     0,    15,     0,    54,    37,    38,
+      39,    40,     0,    41,     0,    27,     0,    62,    37,    38,
+      39,    40,     0,    41,    42,    43,    21,    22,    23,    24,
+      25,    26,    39,    40,     0,    41
 };
 
 static const yytype_int8 yycheck[] =
 {
        0,     1,    31,     3,     4,    29,     6,    23,    24,    25,
       26,     5,    28,    13,    14,    15,    16,    17,    18,    19,
-      29,    30,    22,    23,     3,     1,    28,     3,     4,    29,
-       6,    31,    25,    26,    29,    28,    32,    13,    14,    15,
-      16,    17,    18,    19,    29,    16,    22,    23,    13,    27,
-      15,    20,    21,    29,    -1,    31,    21,    22,    23,    24,
-       3,     4,    27,     6,     3,     4,    -1,     6,    -1,    -1,
-      13,    14,    37,    38,    39,    40,    41,    -1,    -1,    -1,
-      23,    -1,    -1,    -1,    23,    -1,    -1,    -1,    31,    -1,
-      -1,    -1,    31,     7,     8,     9,    10,    11,    12,    23,
-      24,    25,    26,    -1,    28,    -1,    -1,    -1,    32,    -1,
-      23,    24,    25,    26,    -1,    28,    29,    30,    -1,    33,
-       7,     8,     9,    10,    11,    12
+      29,    30,    22,    23,    28,     1,    29,     3,     4,    29,
+       6,    31,     3,     4,    29,     6,    16,    13,    14,    15,
+      16,    17,    18,    19,    27,    -1,    22,    23,    13,    -1,
+      15,    -1,    23,    29,    -1,    31,    21,    22,    23,    24,
+      31,    -1,    27,    28,    20,    21,    -1,     3,     4,    -1,
+       6,    -1,    37,    38,    39,    40,    41,    13,    14,     7,
+       8,     9,    10,    11,    12,    -1,    -1,    23,    23,    24,
+      25,    26,    -1,    28,    -1,    31,    -1,    32,    23,    24,
+      25,    26,    -1,    28,    -1,    33,    -1,    32,    23,    24,
+      25,    26,    -1,    28,    29,    30,     7,     8,     9,    10,
+      11,    12,    25,    26,    -1,    28
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -672,7 +672,7 @@ static const yytype_int8 yystos[] =
       39,     7,     8,     9,    10,    11,    12,    33,    31,    20,
       21,     5,     4,    37,    37,     0,    36,    23,    24,    25,
       26,    28,    29,    30,    29,    29,    30,    37,    37,    37,
-      37,    37,    38,     3,    32,    37,    37,    37,    37,    37,
+      37,    37,    38,    37,    32,    37,    37,    37,    37,    37,
       29,    29,    32
 };
 
@@ -1155,88 +1155,88 @@ yyreduce:
   switch (yyn)
     {
   case 5: /* INICIO: EXPRESION '\n'  */
-#line 66 "analisisSemantico.y"
+#line 66 "analisisSintactico.y"
                      {
         mostrarResultado((yyvsp[-1].val));
     }
-#line 1163 "analisisSemantico.tab.c"
+#line 1163 "analisisSintactico.tab.c"
     break;
 
   case 7: /* INICIO: ASIGNACION '\n'  */
-#line 70 "analisisSemantico.y"
+#line 70 "analisisSintactico.y"
                       {
         mostrarResultado((yyvsp[-1].val));
     }
-#line 1171 "analisisSemantico.tab.c"
+#line 1171 "analisisSintactico.tab.c"
     break;
 
   case 10: /* INICIO: TOKEN_HELP  */
-#line 75 "analisisSemantico.y"
+#line 75 "analisisSintactico.y"
                  {imprimirAyuda();}
-#line 1177 "analisisSemantico.tab.c"
+#line 1177 "analisisSintactico.tab.c"
     break;
 
   case 11: /* INICIO: TOKEN_WORKSPACE  */
-#line 76 "analisisSemantico.y"
+#line 76 "analisisSintactico.y"
                       {imprimirTablaSimbolos();}
-#line 1183 "analisisSemantico.tab.c"
+#line 1183 "analisisSintactico.tab.c"
     break;
 
   case 12: /* INICIO: TOKEN_CLEAR  */
-#line 77 "analisisSemantico.y"
+#line 77 "analisisSintactico.y"
                   {limpiarVariables();}
-#line 1189 "analisisSemantico.tab.c"
+#line 1189 "analisisSintactico.tab.c"
     break;
 
   case 13: /* INICIO: TOKEN_ECHO ON  */
-#line 78 "analisisSemantico.y"
+#line 78 "analisisSintactico.y"
                     {
         echoOn(); 
-        printf("->ECHO ACTIVADO\n");
+        printf("-> ECHO ACTIVADO\n");
         }
-#line 1198 "analisisSemantico.tab.c"
+#line 1198 "analisisSintactico.tab.c"
     break;
 
   case 14: /* INICIO: TOKEN_ECHO OFF  */
-#line 82 "analisisSemantico.y"
+#line 82 "analisisSintactico.y"
                      {
         echoOff(); 
-        printf("->ECHO DESACTIVADO\n");
+        printf("-> ECHO DESACTIVADO\n");
         }
-#line 1207 "analisisSemantico.tab.c"
+#line 1207 "analisisSintactico.tab.c"
     break;
 
   case 15: /* INICIO: TOKEN_LOAD TOKEN_ARCHIVO  */
-#line 86 "analisisSemantico.y"
+#line 86 "analisisSintactico.y"
                                {leerArchivo((yyvsp[0].str)); }
-#line 1213 "analisisSemantico.tab.c"
+#line 1213 "analisisSintactico.tab.c"
     break;
 
   case 16: /* INICIO: TOKEN_QUIT  */
-#line 87 "analisisSemantico.y"
+#line 87 "analisisSintactico.y"
                  {
-        printf("->Saliendo...\n");
+        printf("-> Saliendo...\n");
         exit(0);
         }
-#line 1222 "analisisSemantico.tab.c"
+#line 1222 "analisisSintactico.tab.c"
     break;
 
   case 17: /* INICIO: error  */
-#line 92 "analisisSemantico.y"
+#line 92 "analisisSintactico.y"
             {
-        yyerror("Error de sintaxis");
+        yyerror("ERROR: Error de sintaxis");
     }
-#line 1230 "analisisSemantico.tab.c"
+#line 1230 "analisisSintactico.tab.c"
     break;
 
   case 18: /* EXPRESION: TOKEN_NUMERO  */
-#line 98 "analisisSemantico.y"
+#line 98 "analisisSintactico.y"
                    { (yyval.val) = (yyvsp[0].val); }
-#line 1236 "analisisSemantico.tab.c"
+#line 1236 "analisisSintactico.tab.c"
     break;
 
   case 19: /* EXPRESION: TOKEN_IDENTIFICADOR  */
-#line 99 "analisisSemantico.y"
+#line 99 "analisisSintactico.y"
                           {
         if (esVariable((yyvsp[0].str)) || esConstante((yyvsp[0].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[0].str));
@@ -1246,29 +1246,29 @@ yyreduce:
         }
         free((yyvsp[0].str));
     }
-#line 1250 "analisisSemantico.tab.c"
+#line 1250 "analisisSintactico.tab.c"
     break;
 
   case 20: /* EXPRESION: EXPRESION '+' EXPRESION  */
-#line 108 "analisisSemantico.y"
+#line 108 "analisisSintactico.y"
                               { (yyval.val) = (yyvsp[-2].val) + (yyvsp[0].val); }
-#line 1256 "analisisSemantico.tab.c"
+#line 1256 "analisisSintactico.tab.c"
     break;
 
   case 21: /* EXPRESION: EXPRESION '-' EXPRESION  */
-#line 109 "analisisSemantico.y"
+#line 109 "analisisSintactico.y"
                               { (yyval.val) = (yyvsp[-2].val) - (yyvsp[0].val); }
-#line 1262 "analisisSemantico.tab.c"
+#line 1262 "analisisSintactico.tab.c"
     break;
 
   case 22: /* EXPRESION: EXPRESION '*' EXPRESION  */
-#line 110 "analisisSemantico.y"
+#line 110 "analisisSintactico.y"
                               { (yyval.val) = (yyvsp[-2].val) * (yyvsp[0].val); }
-#line 1268 "analisisSemantico.tab.c"
+#line 1268 "analisisSintactico.tab.c"
     break;
 
   case 23: /* EXPRESION: EXPRESION '/' EXPRESION  */
-#line 111 "analisisSemantico.y"
+#line 111 "analisisSintactico.y"
                               {
         if ((yyvsp[0].val) == 0) {
             yyerror("ERROR: División por cero.");
@@ -1277,29 +1277,29 @@ yyreduce:
             (yyval.val) = (yyvsp[-2].val) / (yyvsp[0].val);
         }
     }
-#line 1281 "analisisSemantico.tab.c"
+#line 1281 "analisisSintactico.tab.c"
     break;
 
   case 24: /* EXPRESION: '-' EXPRESION  */
-#line 119 "analisisSemantico.y"
+#line 119 "analisisSintactico.y"
                               { (yyval.val) = -(yyvsp[0].val); }
-#line 1287 "analisisSemantico.tab.c"
+#line 1287 "analisisSintactico.tab.c"
     break;
 
   case 25: /* EXPRESION: EXPRESION '^' EXPRESION  */
-#line 120 "analisisSemantico.y"
+#line 120 "analisisSintactico.y"
                               { (yyval.val) = pow((yyvsp[-2].val), (yyvsp[0].val)); }
-#line 1293 "analisisSemantico.tab.c"
+#line 1293 "analisisSintactico.tab.c"
     break;
 
   case 26: /* EXPRESION: '(' EXPRESION ')'  */
-#line 121 "analisisSemantico.y"
+#line 121 "analisisSintactico.y"
                         { (yyval.val) = (yyvsp[-1].val); }
-#line 1299 "analisisSemantico.tab.c"
+#line 1299 "analisisSintactico.tab.c"
     break;
 
   case 27: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MAS_MAS  */
-#line 122 "analisisSemantico.y"
+#line 122 "analisisSintactico.y"
                                         {
         if (esVariable((yyvsp[-1].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-1].str)) + 1;
@@ -1310,11 +1310,11 @@ yyreduce:
         }
         free((yyvsp[-1].str));
     }
-#line 1314 "analisisSemantico.tab.c"
+#line 1314 "analisisSintactico.tab.c"
     break;
 
   case 28: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MENOS_MENOS  */
-#line 132 "analisisSemantico.y"
+#line 132 "analisisSintactico.y"
                                             {
         if (esVariable((yyvsp[-1].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-1].str)) - 1;
@@ -1325,11 +1325,11 @@ yyreduce:
         }
         free((yyvsp[-1].str));
     }
-#line 1329 "analisisSemantico.tab.c"
+#line 1329 "analisisSintactico.tab.c"
     break;
 
   case 29: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MAS_IGUAL EXPRESION  */
-#line 142 "analisisSemantico.y"
+#line 142 "analisisSintactico.y"
                                                     {
         if (esVariable((yyvsp[-2].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-2].str)) + (yyvsp[0].val);
@@ -1340,11 +1340,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1344 "analisisSemantico.tab.c"
+#line 1344 "analisisSintactico.tab.c"
     break;
 
   case 30: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_MENOS_IGUAL EXPRESION  */
-#line 152 "analisisSemantico.y"
+#line 152 "analisisSintactico.y"
                                                       {
         if (esVariable((yyvsp[-2].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-2].str)) - (yyvsp[0].val);
@@ -1355,11 +1355,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1359 "analisisSemantico.tab.c"
+#line 1359 "analisisSintactico.tab.c"
     break;
 
   case 31: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_POR_IGUAL EXPRESION  */
-#line 162 "analisisSemantico.y"
+#line 162 "analisisSintactico.y"
                                                     {
         if (esVariable((yyvsp[-2].str))) {
             (yyval.val) = obtenerVariableConstante((yyvsp[-2].str)) * (yyvsp[0].val);
@@ -1370,11 +1370,11 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1374 "analisisSemantico.tab.c"
+#line 1374 "analisisSintactico.tab.c"
     break;
 
   case 32: /* EXPRESION: TOKEN_IDENTIFICADOR TOKEN_DIVIDIDO_IGUAL EXPRESION  */
-#line 172 "analisisSemantico.y"
+#line 172 "analisisSintactico.y"
                                                          {
         if (esVariable((yyvsp[-2].str))) {
             if ((yyvsp[0].val) == 0) {
@@ -1390,12 +1390,12 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1394 "analisisSemantico.tab.c"
+#line 1394 "analisisSintactico.tab.c"
     break;
 
-  case 33: /* EXPRESION: TOKEN_FUNCIONES '(' TOKEN_NUMERO ')'  */
-#line 187 "analisisSemantico.y"
-                                           {
+  case 33: /* EXPRESION: TOKEN_FUNCIONES '(' EXPRESION ')'  */
+#line 187 "analisisSintactico.y"
+                                        {
         if (esFuncion((yyvsp[-3].str))) {
             (yyval.val) = ejecutarFuncion((yyvsp[-3].str), (yyvsp[-1].val));
         } else {
@@ -1405,28 +1405,27 @@ yyreduce:
         }
         free((yyvsp[-3].str));
     }
-#line 1409 "analisisSemantico.tab.c"
+#line 1409 "analisisSintactico.tab.c"
     break;
 
   case 34: /* COMANDO: TOKEN_EOF  */
-#line 200 "analisisSemantico.y"
+#line 200 "analisisSintactico.y"
                 {
-        // Cuando se acaba de leer el archivo
         cerrarArchivo();
     }
-#line 1418 "analisisSemantico.tab.c"
+#line 1417 "analisisSintactico.tab.c"
     break;
 
   case 35: /* COMANDO: TOKEN_ERROR  */
-#line 204 "analisisSemantico.y"
+#line 203 "analisisSintactico.y"
                   {
         yyerror("ERROR: Lexema mal formado.");
     }
-#line 1426 "analisisSemantico.tab.c"
+#line 1425 "analisisSintactico.tab.c"
     break;
 
   case 36: /* ASIGNACION: TOKEN_IDENTIFICADOR '=' EXPRESION  */
-#line 210 "analisisSemantico.y"
+#line 209 "analisisSintactico.y"
                                         {
         if (!esConstante((yyvsp[-2].str))) {
             anadirVariable((yyvsp[-2].str), (yyvsp[0].val));
@@ -1437,19 +1436,19 @@ yyreduce:
         }
         free((yyvsp[-2].str));
     }
-#line 1441 "analisisSemantico.tab.c"
+#line 1440 "analisisSintactico.tab.c"
     break;
 
   case 37: /* ASIGNACION: TOKEN_IDENTIFICADOR '=' COMANDO  */
-#line 220 "analisisSemantico.y"
+#line 219 "analisisSintactico.y"
                                       {
         yyerror("ERROR: Asignación no válida a un comando.");
     }
-#line 1449 "analisisSemantico.tab.c"
+#line 1448 "analisisSintactico.tab.c"
     break;
 
 
-#line 1453 "analisisSemantico.tab.c"
+#line 1452 "analisisSintactico.tab.c"
 
       default: break;
     }
@@ -1642,7 +1641,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 225 "analisisSemantico.y"
+#line 224 "analisisSintactico.y"
 
 
 void yyerror(const char *s) {
@@ -1651,7 +1650,7 @@ void yyerror(const char *s) {
 
 void mostrarResultado(double valor) {
     if (echo && !isnan(valor)) {
-        printf("-> %.10g\n", valor);
+        printf("-> %g\n", valor);
     }
 }
 
